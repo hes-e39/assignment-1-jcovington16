@@ -1,42 +1,55 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import Stopwatch from "../components/timers/Stopwatch";
-import Countdown from "../components/timers/Countdown";
-import XY from "../components/timers/XY";
-import Tabata from "../components/timers/Tabata";
-
-const Timers = styled.div`
+const TimersContainer = styled.div`
+  background-color: #f0f0f0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const Timer = styled.div`
-  border: 1px solid gray;
+  justify-content: center;
   padding: 20px;
-  margin: 10px;
-  font-size: 1.5rem;
 `;
 
-const TimerTitle = styled.div``;
+const Title = styled.h1`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const TimerButton = styled(Link)`
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  width: 200px;
+  display: block;
+  text-transform: uppercase;
+  &:hover {
+    background-color: #45a049;
+  }
+`;
 
 const TimersView = () => {
-  const timers = [
-    { title: "Stopwatch", C: <Stopwatch /> },
-    { title: "Countdown", C: <Countdown /> },
-    { title: "XY", C: <XY /> },
-    { title: "Tabata", C: <Tabata /> },
-  ];
-
   return (
-    <Timers>
-      {timers.map((timer) => (
-        <Timer key={`timer-${timer.title}`}>
-          <TimerTitle>{timer.title}</TimerTitle>
-          {timer.C}
-        </Timer>
-      ))}
-    </Timers>
+    <TimersContainer>
+      <Title>Select a Timer</Title>
+      <ButtonContainer>
+        <TimerButton to="/stopwatch">Stopwatch</TimerButton>
+        <TimerButton to="/countdown">Countdown</TimerButton>
+        <TimerButton to="/xy">XY Timer</TimerButton>
+        <TimerButton to="/tabata">Tabata</TimerButton>
+      </ButtonContainer>
+    </TimersContainer>
   );
 };
 
