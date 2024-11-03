@@ -4,6 +4,7 @@ import HomeButton from "../generic/HomeButton";
 import Panel from "../generic/Panel";
 import Button from "../generic/StartButton";
 import ResetButton from "../generic/ResetButton";
+import { formatTime } from "../../utils/helpers";
 
 const TimeDisplay = styled.div`
   font-size: 3rem;
@@ -28,16 +29,6 @@ const Stopwatch = () => {
   const reset = () => {
     setIsActive(false);
     setTime(0);
-  };
-
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60000); // Convert milliseconds to minutes
-    const seconds = Math.floor((time % 60000) / 1000); // Convert remaining milliseconds to seconds
-    const milliseconds = Math.floor((time % 1000) / 10); // Convert remaining to 2-digit milliseconds
-
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}:${milliseconds.toString().padStart(2, "0")}`;
   };
 
   return (
