@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import TimersView from "./views/TimersView";
 import DocumentationView from "./views/DocumentationView";
 import Countdown from "./components/timers/Countdown";

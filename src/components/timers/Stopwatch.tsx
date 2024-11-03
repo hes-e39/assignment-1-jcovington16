@@ -2,32 +2,12 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import HomeButton from "../generic/HomeButton";
 import Panel from "../generic/Panel";
+import Button from "../generic/StartButton";
+import ResetButton from "../generic/ResetButton";
 
 const TimeDisplay = styled.div`
   font-size: 3rem;
   margin-bottom: 20px;
-`;
-
-// Reuse existing Button and ResetButton from the generic folder or define them here
-const Button = styled.button`
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin: 5px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  &:hover {
-    background-color: #45a049;
-  }
-`;
-
-const ResetButton = styled(Button)`
-  background-color: #f44336;
-  &:hover {
-    background-color: #e53935;
-  }
 `;
 
 const Stopwatch = () => {
